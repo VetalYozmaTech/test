@@ -12,11 +12,11 @@ const enhancer = connect(null);
 export const DetailPage = enhancer(({ match: { params } }) => {
     const classes = useStyles();
     const { trackedUsers } = store.getState().users;
-    const [user, setUser] = React.useState(null);
+    const [ user, setUser ] = React.useState(null);
 
     useEffect(() => {
         setUser(trackedUsers && trackedUsers[params.id]);
-    }, [trackedUsers]);
+    }, [trackedUsers, params.id]);
 
     return (
         <Card className={classes.root}>
